@@ -13,11 +13,7 @@ namespace pathfinder
             string path = @args[0] + ".csn";
             // Initialise a new instance of the StreamWriter class for the specified path string
             StreamWriter streamWriter = new StreamWriter(path);
-            //
-            //
-            //REMEMBER TO DELETE THE SOLUTIONSTRING DISTANCE BEFORE SENDING IT!!
-            //
-            //
+            // We write the string with the path into the .csn file
             streamWriter.Write(findPath.SolutionString);
             // Closes the current StreamWriter object.
             streamWriter.Close();

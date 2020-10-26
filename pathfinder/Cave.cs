@@ -16,7 +16,6 @@
             this.XAxys = (int)x;
             this.YAxys = (int)y;
         }
-
         public void CalculateFCost()
         {
             // We calculate the F cost by adding the cave's G cost to the cave's H cost

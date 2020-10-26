@@ -25,7 +25,6 @@ namespace pathfinder
             // Calls the method SearchPath to start searching for the shortest path. We pass the position of the first cave
             SolutionString = SearchPath(1, CavesGrid.NumberCaves);
         }
-
         public string SearchPath(int startingCave, int finishingCave)
         {
             // We iterate throughout all the caves and asign them a null parent, the cave number, calculate the F cost,
@@ -112,7 +111,6 @@ namespace pathfinder
             // If the OpenList is empty, we return 0 as we didn't find a valid path.
             return "0";
         }
-
         public static int Euclidean(Cave fromCave, Cave toCave)
         {
             // This method calculates the Euclidean distance between two cavers applying the following heuristic function
