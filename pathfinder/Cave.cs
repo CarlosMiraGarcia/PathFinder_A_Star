@@ -2,19 +2,19 @@
 {
     public class Cave
     {
-        public int GCost { get; set; } = int.MaxValue;
-        public int HCost { get; set; }
-        public int FCost { get; set; }
-        public int XAxys { get; set; }
-        public int YAxys { get; set; }
+        public double GCost { get; set; } = int.MaxValue;
+        public double HCost { get; set; }
+        public double FCost { get; set; }
+        public double XAxys { get; set; }
+        public double YAxys { get; set; }
         public bool IsLastCave { get; set; }
         public int CaveNumber { get; set; }
         public Cave Parent { get; set; }
 
-        public Cave(int x, int y)
+        public Cave(double x, double y)
         {
-            this.XAxys = (int)x;
-            this.YAxys = (int)y;
+            this.XAxys = (double)x;
+            this.YAxys = (double)y;
         }
         public void CalculateFCost()
         {

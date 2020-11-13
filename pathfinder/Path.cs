@@ -13,8 +13,6 @@ namespace pathfinder
         public HashSet<Cave> ClosedList { get; set; }
         public CavesGrid CavesGrid { get; set; }
         public string SolutionString { get; set; }
-        public int SolutionDistance { get; set; }
-
         public Path(string pathFile)
         {
             // We create an instance of the class CavesGrid, and we pass a string
@@ -88,7 +86,7 @@ namespace pathfinder
                     }
 
                     // We set the travellingCost as the currentCave G cost plus the Euclidean heuristic from the currentCave to the connectedCave
-                    int travellingCost = currentCave.GCost + Euclidean(currentCave, connectedCave);
+                    double travellingCost = currentCave.GCost + Euclidean(currentCave, connectedCave);
 
                     // We check if the travellingCost is inferior to the G cost of the connectedCave. If true, we update the G Cost of the connectedCave
                     // to the travellingCost, calculate the H Cost and F Cost of the conectedCave, and set
@@ -111,10 +109,10 @@ namespace pathfinder
             // If the OpenList is empty, we return 0 as we didn't find a valid path.
             return "0";
         }
-        public static int Euclidean(Cave fromCave, Cave toCave)
+        public static double Euclidean(Cave fromCave, Cave toCave)
         {
             // This method calculates the Euclidean distance between two cavers applying the following heuristic function
-            return (int)Math.Sqrt(((toCave.XAxys - fromCave.XAxys) * (toCave.XAxys - fromCave.XAxys)) + ((toCave.YAxys - fromCave.YAxys) * (toCave.YAxys - fromCave.YAxys)));
+            return Math.Sqrt(((toCave.XAxys - fromCave.XAxys) * (toCave.XAxys - fromCave.XAxys)) + ((toCave.YAxys - fromCave.YAxys) * (toCave.YAxys - fromCave.YAxys)));
         }
         public string CalculatePath(Cave toCave)
         {
@@ -134,19 +132,6 @@ namespace pathfinder
 
             // We reverse the list to get a path from the startin cave to the end cave.
             SolutionList.Reverse();
-
-            //
-            //
-            // DELETE THIS, THIS IS ONLY FOR TESTING
-            //
-            //
-            //int distanceSum = 0;
-            //for (int i = 0; i < SolutionList.Count - 1; i++)
-            //{
-            //    distanceSum += Euclidean(SolutionList[i], SolutionList[i + 1]);
-            //}
-            //SolutionDistance = distanceSum;
-
             // We create a new list of strings
             List<string> solution = new List<string>();
             // We iterate throught the SolutionList and conver to string the number of the cave corresponding
