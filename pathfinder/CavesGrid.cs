@@ -45,7 +45,7 @@ namespace pathfinder
             // To outperform the string.Split and Int32.Parse method,I decided to implement it myself  .
             // In this function, we have to provide the raw string to find out the number of cavers
 
-            // We iterate throught the raw string, adding each number to the string NumberCaves
+            // We iterate through the raw string, adding each number to the string NumberCaves
             // until we find a comma. Then we break the loop.
             for (int i = 0; i < rawString.Length; i++)
             {
@@ -55,7 +55,7 @@ namespace pathfinder
                 }
                 // After each iteration, we multiply the current NumberCave by 10 so we can move the
                 // current value to the tens, hundreds, and so on. Then we add it to the value of
-                // the character found at i position on the rawString. The - '0' will give us the integrer from the char
+                // the character found at i position on the rawString. The - '0' will give us the integer from the char
                 NumberCaves = NumberCaves * 10 + (rawString[i] - '0');
             }
         }
@@ -79,7 +79,7 @@ namespace pathfinder
             int row = 0;
             int[] intArray = new int[iterations];
 
-            // We iterate throught the raw string, adding each number to the string NumberCaves,
+            // We iterate through the raw string, adding each number to the string NumberCaves,
             // Each time we find a comma, we increment the row value and use continue to avoid the
             // addition of the comma into the array
             for (int i = 0; i < rawString.Length; i++)
@@ -91,17 +91,17 @@ namespace pathfinder
                 }
                 // After each iteration, we multiply the current value of intArray[row] by 10 so we can move the
                 // current value to the tens, hundreds, and so on. Then we add it to the value of
-                // the character found at i position on the rawString. The - '0' will give us the integrer from the char
+                // the character found at i position on the rawString. The - '0' will give us the integer from the char
                 intArray[row] = intArray[row] * 10 + (rawString[i] - '0');
             }
-            // Once we iterate throught the whole string, we return the array.
+            // Once we iterate through the whole string, we return the array.
             return intArray;
         }
 
         private void PrepareArrays()
         {
             // This method calls the ToArrayMap, providing the array with all the set of integers,
-            // the number of colums for the jagged array and the purpose of the array we are going to create.
+            // the number of columns for the jagged array and the purpose of the array we are going to create.
             CaveCoordinates = ToArrayMap(SplitNumbers, 2, "coordinates");
             CaveConnections = ToArrayMap(SplitNumbers, NumberCaves, "connections");
         }
@@ -122,8 +122,8 @@ namespace pathfinder
 
             int[][] caveArray = new int[NumberCaves][];
 
-            // With a nested for loop, we iterate throught all the rows and columns,
-            // adding the appropiate integer from the splitArray array into the new jagged array.
+            // With a nested for loop, we iterate through all the rows and columns,
+            // adding the appropriate integer from the splitArray array into the new jagged array.
             // The value index will indicate where about in the splitArray array we need to start.
             for (int i = 0; i < NumberCaves; i++)
             {
